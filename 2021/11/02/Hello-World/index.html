@@ -129,8 +129,7 @@
       
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <div class="aplayer-box" data-url='//music.163.com/outchain/player?type' data-name='You' data-artist='雪野五月' data-cover='http://p2.music.126.net/KQvKhAx7nOKlgGP5MvOiDw' data-lrc='https://qiniu.sukoshi.xyz/public/music/鹿乃 - アイロニ.lrc' data-lrcType='3' ></div>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=530 height=86 src="//music.163.com/outchain/player?type=2&id=672188&auto=1&height=66"></iframe>
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=720 height=86 src="//music.163.com/outchain/player?type=2&id=672188&auto=1&height=66"></iframe>
 
 
     <figure class="figure-image">
@@ -138,8 +137,6 @@
       <figcaption>o(^▽^)o</figcaption>
     </figure>
   
-
-<div class="aplayer-box" data-url='https://qiniu.sukoshi.xyz/public/music/鹿乃 - アイロニ.mp3' data-name='アイロニ' data-artist='鹿乃' data-cover='http://p2.music.126.net/KQvKhAx7nOKlgGP5MvOiDw' data-lrc data-lrcType='3' ></div>
 
 
       </section>
@@ -317,34 +314,6 @@
 
   
   <!-- aplayer -->
-
-
-  <!-- aplayer 音频 start -->
-  <link rel="stylesheet" href="https://unpkg.com/aplayer@1.10.1/dist/APlayer.min.css">
-  <script type="text/javascript" src="https://unpkg.com/aplayer@1.10.1/dist/APlayer.min.js"></script>
-  <script type="text/javascript">
-    const aplayer = document.querySelectorAll(".aplayer-box");
-    aplayer && initaplayer(aplayer);
-    function initaplayer(els) {
-      let elsArr = Array.from(els);
-      elsArr.forEach(el => {
-        let params = {
-          container: el,
-          audio: { ...el.dataset },
-          theme: "#b7daff",
-          autoplay: false,
-          loop: false,
-          mutex: true,
-        }
-        if (el.dataset.lrc) {
-          params['lrcType'] = 3
-        }
-        new APlayer(params);
-      });
-    }
-  </script>
-  <!-- aplayer 音频 end -->
-  
 
 
 <!-- dplayer -->
