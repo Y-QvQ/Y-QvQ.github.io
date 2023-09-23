@@ -22,7 +22,7 @@
 
   
 
-  <title>Hello World | 邪王真眼是最强的！</title>
+  <title>NSP中提取资源 | 邪王真眼是最强的！</title>
 
   
 
@@ -96,11 +96,11 @@
     <div class="header-content">
       <div class="post-text layout-block">
         <div class="layout-margin">
-          <h1 class="title-wrap">Hello World</h1>
+          <h1 class="title-wrap">NSP中提取资源</h1>
           <h2 class="title-sub-wrap">
             <strong>Y-QvQ</strong>
             <span>发布于</span>
-            <time  class="article-date" datetime="2021-11-02T07:08:05.000Z" itemprop="datePublished">2021-11-02</time>
+            <time  class="article-date" datetime="2023-09-23T09:04:35.000Z" itemprop="datePublished">2023-09-23</time>
           </h2>
           <ul class="wrap-list dark">
   
@@ -129,14 +129,120 @@
       
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=720 height=86 src="//music.163.com/outchain/player?type=2&id=672188&auto=1&height=66"></iframe>
+        <h1 id="NSP中提取资源"><a href="#NSP中提取资源" class="headerlink" title="NSP中提取资源"></a>NSP中提取资源</h1><h2 id="获取NSP包"><a href="#获取NSP包" class="headerlink" title="获取NSP包"></a>获取NSP包</h2><p><a target="_blank" rel="noopener" href="https://shipengliang.com/games/switch-%E5%A6%82%E4%BD%95dump%E5%8D%A1%E5%B8%A6%E5%92%8C%E6%95%B0%E5%AD%97%E7%89%88%E6%B8%B8%E6%88%8F-%E5%9B%BE%E6%96%87%E6%95%99%E7%A8%8B.html">Switch 如何Dump卡带和数字版游戏 </a></p>
+<h3 id="nxdumptool"><a href="#nxdumptool" class="headerlink" title="nxdumptool"></a>nxdumptool</h3><p><a target="_blank" rel="noopener" href="https://github.com/DarkMatterCore/nxdumptool">DarkMatterCore/nxdumptool: 从Nintendo Switch游戏卡和已安装的SD/eMMC游戏生成XCI/NSP/HFS0/ExeFS/RomFS/Certificate/Ticket转储</a></p>
+<h2 id="解包NSP"><a href="#解包NSP" class="headerlink" title="解包NSP"></a>解包NSP</h2><h3 id="NSCB-101bx64"><a href="#NSCB-101bx64" class="headerlink" title="NSCB_101bx64"></a>NSCB_101bx64</h3><p><strong>重点在于找到合适的keys.txt</strong></p>
+<p>本人解包游戏为魔法使之夜,所以使用的是游玩时导入yuzu模拟器的prod.keys<br>将prod.keys改名为keys.txt放入ztools文件夹中</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">运行NSCB.exe后依次选择</span><br><span class="line">6</span><br><span class="line">输入 &quot;6&quot;  高级选项     (修补链接账户等：常用功能)</span><br><span class="line">2</span><br><span class="line">输入&quot;2&quot;，将文件添加到列表中(选择nsp文件)</span><br><span class="line">1</span><br><span class="line">输入&quot;1&quot;，开始处理</span><br><span class="line">1</span><br><span class="line">输入&quot;1&quot;，从NSP或XCI中提取所有文件</span><br></pre></td></tr></table></figure>
+
+<p>提取出nac文件</p>
+<h3 id="nstool"><a href="#nstool" class="headerlink" title="nstool"></a>nstool</h3><p><a target="_blank" rel="noopener" href="https://github.com/jakcron/nstool">jakcron/nstool: General purpose read/extract tool for Nintendo Switch file formats. — jakcron/nstool：用于Nintendo Switch文件格式的通用读取/提取工具</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">提取所有</span><br><span class="line">nstool -x ./extract_dir/ -k keys.txt some_file.bin</span><br></pre></td></tr></table></figure>
+
+<p>支持的文件类型</p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>gc, <strong>xci</strong></td>
+<td>NX GameCard Image</td>
+</tr>
+<tr>
+<td><strong>nsp</strong></td>
+<td>Nintendo Submission Package</td>
+</tr>
+<tr>
+<td>pfs</td>
+<td>PartitionFs</td>
+</tr>
+<tr>
+<td>hfs</td>
+<td>Sha256PartitionFs</td>
+</tr>
+<tr>
+<td>romfs</td>
+<td>RomFs</td>
+</tr>
+<tr>
+<td><strong>nca</strong></td>
+<td>Nintendo Content Archive</td>
+</tr>
+<tr>
+<td>meta, npdm</td>
+<td>Meta (.npdm)</td>
+</tr>
+<tr>
+<td>cnmt</td>
+<td>Content Metadata</td>
+</tr>
+<tr>
+<td>nso</td>
+<td>Nintendo Shared Object</td>
+</tr>
+<tr>
+<td>nro</td>
+<td>Nintendo Relocatable Object</td>
+</tr>
+<tr>
+<td>ini</td>
+<td>Initial Program Bundle</td>
+</tr>
+<tr>
+<td>kip</td>
+<td>Initial Program</td>
+</tr>
+<tr>
+<td>nacp</td>
+<td>Nintendo Application Control Property</td>
+</tr>
+<tr>
+<td>cert</td>
+<td>ES Certificate</td>
+</tr>
+<tr>
+<td>tik</td>
+<td>ES Ticket</td>
+</tr>
+<tr>
+<td>aset, asset</td>
+<td>Homebrew NRO Asset Binary</td>
+</tr>
+</tbody></table>
+<h2 id="解包NAC"><a href="#解包NAC" class="headerlink" title="解包NAC"></a>解包NAC</h2><h3 id="hactool"><a href="#hactool" class="headerlink" title="hactool"></a>hactool</h3><p><a target="_blank" rel="noopener" href="https://github.com/SciresM/hactool/releases">Releases · SciresM/hactool (github.com)</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.\hactool.exe -x -k keys.txt --romfsdir=&quot;romfs&quot; --exefsdir=&quot;exefs&quot; .\*.nca</span><br></pre></td></tr></table></figure>
 
 
-    <figure class="figure-image">
-      <img src="https://s1.328888.xyz/2022/05/09/41cXA.jpg" alt="o(^▽^)o" loading="lazy" />
-      <figcaption>o(^▽^)o</figcaption>
-    </figure>
-  
+
+
+
+
+
+<h2 id="音频处理"><a href="#音频处理" class="headerlink" title="音频处理"></a>音频处理</h2><p>试了Audacity,foobar2000,opus-tool以及各种播放器均无法打开</p>
+<p>后在一论坛发现解决方案</p>
+<p><a target="_blank" rel="noopener" href="https://gbatemp.net/threads/playing-converting-opus-files-extracted-from-switch-game.553025/"> 播放/转换从 Switch 游戏中提取的 .opus 文件？</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">您可以使用 vgmstream 组件使用 Foobar 播放文件。</span><br><span class="line">您可能需要将文件重命名为 *.lopus，组件才能识别文件。</span><br></pre></td></tr></table></figure>
+
+<h3 id="foobar2000"><a href="#foobar2000" class="headerlink" title="foobar2000"></a>foobar2000</h3><p>安装下面两个内容</p>
+<p><a target="_blank" rel="noopener" href="https://www.foobar2000.org/">foobar2000</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.foobar2000.org/encoderpack">foobar2000: Free Encoder Pack</a></p>
+<h3 id="vgmstream"><a href="#vgmstream" class="headerlink" title="vgmstream"></a>vgmstream</h3><p><a target="_blank" rel="noopener" href="https://www.foobar2000.org/components/view/foo_input_vgmstream">foobar2000: Components Repository - vgmstream decoder</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Import foo_input_vgmstream.fbk2-component into foobar2000 using &quot;File / Preferences / Components / Install...&quot;.</span><br></pre></td></tr></table></figure>
+
+<h3 id="播放并转换"><a href="#播放并转换" class="headerlink" title="播放并转换"></a>播放并转换</h3><p><strong>opus后缀改为lopus</strong></p>
+<p>用foobar2000顺利打开,右键转换格式</p>
+<h2 id="解包MRG"><a href="#解包MRG" class="headerlink" title="解包MRG"></a>解包MRG</h2><p><a target="_blank" rel="noopener" href="https://github.com/Remonade/PS-HuneX_Tools/tree/master">Remonade/PS-HuneX_Tools: Incomplete set of tools for MRG/MZX based engine (github.com)</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python hedutil.py unpack --filelist allpac.list allpac.hed</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="解包BFSAR"><a href="#解包BFSAR" class="headerlink" title="解包BFSAR"></a>解包BFSAR</h2><p>1、对于DDSP,G1L,BFSTM文件直接用foobar2k的vgmstream插件播放或者convert即可。（winamp配合插件应该也可以）<br>2、对于BFSAR或者SARC文件可以用vgmtoolbox转成fwav文件然后再用foobar转换为wav文件，但注意advanced cutter插件的文件夹中必须有转换为fwav的对应xml文件。</p>
+<p><a target="_blank" rel="noopener" href="https://sourceforge.net/projects/vgmtoolbox/">VGMToolbox download | SourceForge.net</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/bxaimc/VGMToolbox">bxaimc/VGMToolbox: A git clone of snakemeat’s VGMToolbox - A collection of tools useful for extracting, modifying, and creating files commonly found in video games. (github.com)</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">advanced cutter功能提取bfwav的xml文件</span><br><span class="line">Search String: FEFF -&gt; FFFE &amp; Endianess: Big -&gt; Little</span><br></pre></td></tr></table></figure>
 
 
       </section>
@@ -145,20 +251,20 @@
       
         <nav class="article-nav">
           
+          
             <div class="article-nav-item layout-padding">
   <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
     
     <div class="card-text">
       
-        <a href="/2021/11/03/GITHUB-HEXO%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">GITHUB+HEXO部署博客</h2>
+        <a href="/2022/12/13/WAV%E9%9F%B3%E9%A2%91lsb%E9%9A%90%E5%86%99/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">WAV音频lsb隐写</h2>
         </a>
       
-      <div class="card-text--row">Newer</div>
+      <div class="card-text--row">Older</div>
     </div>
   </article>
 </div>
-          
           
         </nav>
       
@@ -314,6 +420,34 @@
 
   
   <!-- aplayer -->
+
+
+  <!-- aplayer 音频 start -->
+  <link rel="stylesheet" href="https://unpkg.com/aplayer@1.10.1/dist/APlayer.min.css">
+  <script type="text/javascript" src="https://unpkg.com/aplayer@1.10.1/dist/APlayer.min.js"></script>
+  <script type="text/javascript">
+    const aplayer = document.querySelectorAll(".aplayer-box");
+    aplayer && initaplayer(aplayer);
+    function initaplayer(els) {
+      let elsArr = Array.from(els);
+      elsArr.forEach(el => {
+        let params = {
+          container: el,
+          audio: { ...el.dataset },
+          theme: "#b7daff",
+          autoplay: false,
+          loop: false,
+          mutex: true,
+        }
+        if (el.dataset.lrc) {
+          params['lrcType'] = 3
+        }
+        new APlayer(params);
+      });
+    }
+  </script>
+  <!-- aplayer 音频 end -->
+  
 
 
 <!-- dplayer -->
