@@ -22,7 +22,7 @@
 
   
 
-  <title>邪王真眼是最强的！</title>
+  <title>H3C Magic NX30 TTL线刷机 | 邪王真眼是最强的！</title>
 
   
 
@@ -96,11 +96,11 @@
     <div class="header-content">
       <div class="post-text layout-block">
         <div class="layout-margin">
-          <h1 class="title-wrap"></h1>
+          <h1 class="title-wrap">H3C Magic NX30 TTL线刷机</h1>
           <h2 class="title-sub-wrap">
             <strong>Y-QvQ</strong>
             <span>发布于</span>
-            <time  class="article-date" datetime="2025-02-10T11:08:14.602Z" itemprop="datePublished">2025-02-10</time>
+            <time  class="article-date" datetime="2025-02-06T16:00:00.000Z" itemprop="datePublished">2025-02-07</time>
           </h2>
           <ul class="wrap-list dark">
   
@@ -139,15 +139,15 @@
 <p><a target="_blank" rel="noopener" href="https://firmware-selector.openwrt.org/">https://firmware-selector.openwrt.org/</a></p>
 <h2 id="连接TTL"><a href="#连接TTL" class="headerlink" title="连接TTL"></a>连接TTL</h2><p>接好ttl线后使用mobaxterm创建serial连接,选择对应的Serial port,Speed(bps)设置为115200</p>
 <p>可以正常输入输出，进入了<code>&lt;H3C_NX30&gt;</code>终端</p>
-<p><img src="....%5Csource%5Cimgs%5Ch3c_nx30%5C1.png" alt="1"></p>
-<p><img src="....%5Csource%5Cimgs%5Ch3c_nx30%5C2.png" alt="2"></p>
+<p><img src="/imgs/h3c_nx30/1.png" alt="1"></p>
+<p><img src="/imgs/h3c_nx30/2.png" alt="2"></p>
 <h2 id="进入UBOOT"><a href="#进入UBOOT" class="headerlink" title="进入UBOOT"></a>进入UBOOT</h2><p>输入reboot,开机时按Enter进入uboot</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">***************************************************************************</span><br><span class="line">*                                                                         *</span><br><span class="line">*                     H3C NX30 Boot, Version 100                     *</span><br><span class="line">*                                                                         *</span><br><span class="line">***************************************************************************</span><br><span class="line"></span><br><span class="line">Hit Enter to stop autoboot:  0</span><br></pre></td></tr></table></figure>
 
 <p>在上述页面出来的一小段时间里按回车(建议提前按，按快点),失败了输入reboot重来</p>
 <p>进入<code>&lt;H3C&gt;</code>终端即为成功</p>
 <p><a target="_blank" rel="noopener" href="https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/18842223/U-boot">u-boot命令</a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">printenv</span><br><span class="line">mtd list</span><br><span class="line">mtdparts</span><br><span class="line">smeminfo</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">printenv</span><br><span class="line">mtd list</span><br><span class="line">mtdparts</span><br><span class="line">smeminfo</span><br><span class="line">cat /proc/mtd</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">erase &lt;flash地址&gt; +&lt;擦除大小&gt;</span><br><span class="line">sf erase &lt;flash地址&gt; +&lt;擦除大小&gt;</span><br><span class="line">sf write &lt;源地址&gt; &lt;目的地址&gt; &lt;长度&gt;</span><br><span class="line">cp.b &lt;源地址&gt; &lt;目的地址&gt; &lt;长度&gt;</span><br></pre></td></tr></table></figure>
 
@@ -157,7 +157,7 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">setenv serverip 192.168.x.x</span><br><span class="line">setenv ipaddr 192.168.x.x</span><br><span class="line">电脑ip与uboot中serverip保持一致,电脑网关和DNS与uboot中ipaddr保持一致</span><br><span class="line"></span><br><span class="line">我这里是</span><br><span class="line">ipaddr=192.168.10.10</span><br><span class="line">serverip=192.168.10.19</span><br></pre></td></tr></table></figure>
 
 <p>将所需固件放入tftp目录下</p>
-<p><img src="....%5Csource%5Cimgs%5Ch3c_nx30%5C3.png" alt="3"></p>
+<p><img src="/imgs/h3c_nx30/3.png" alt="3"></p>
 <h2 id="刷固件"><a href="#刷固件" class="headerlink" title="刷固件"></a>刷固件</h2><p><strong>方法一 刷入带有ssh的固件(找不到固件)</strong></p>
 <p><strong>方法二 刷入factory固件(失败了)</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tftpboot factory.bin</span><br><span class="line">flash rootfs</span><br><span class="line">reset/reboot</span><br></pre></td></tr></table></figure>
@@ -166,12 +166,12 @@
 
 <p>参考<a target="_blank" rel="noopener" href="https://www.right.com.cn/forum/thread-8274491-1-1.html">https://www.right.com.cn/forum/thread-8274491-1-1.html</a></p>
 <p><strong>方法三 刷入救砖包(MIBIB和APPSBL)</strong></p>
-<p>需要特定固件包(不确定)，不到H3C的，所以混刷了AX3000的不死界面WEB**(会车门焊死用不了TTL,慎重)**，终端从&lt;H3C&gt;变为了IPQ5018#</p>
+<p>需要特定固件包(自己编译)，不到H3C的，所以混刷了AX3000的不死界面WEB**(会车门焊死用不了TTL,慎重)**，终端从&lt;H3C&gt;变为了IPQ5018#</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">刷大分区</span><br><span class="line">tftpboot MIBIB.bin &amp;&amp; flash 0:MIBIB</span><br><span class="line">刷UBOOT</span><br><span class="line">tftpboot APPSBL.bin &amp;&amp; flash 0:APPSBL</span><br><span class="line">tftpboot APPSBL1.bin &amp;&amp; flash 0:APPSBL_1</span><br></pre></td></tr></table></figure>
 
 <p>刷完断电，用网线连接 LAN 口和电脑，按着 reset 插电 5~10 秒后进入 Uboot</p>
 <p>选好CR8808固件包后无法成功刷固件(其他固件传上去说用不了),断电重启会回到web页面,不断电可以使用TTL(可能是因为固件不对刷不成功)</p>
-<p><strong>方法四 刷入救砖包(MIBIB和APPSBL)</strong></p>
+<p><strong>方法四 烧录器烧录固件</strong></p>
 <p>用烧录器烧录低版本固件到闪存，然后用常规方法刷。(烧录夹、编程器、热风枪等)</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">smeminfo</span><br><span class="line">ubi0: detaching mtd1</span><br><span class="line">ubi0: mtd1 is detached</span><br><span class="line">ubi0: attaching mtd1</span><br><span class="line">ubi0: scanning is finished</span><br><span class="line">ubi0: attached mtd1 (name &quot;mtd=0&quot;, size 116 MiB)</span><br><span class="line">ubi0: PEB size: 131072 bytes (128 KiB), LEB size: 126976 bytes</span><br><span class="line">ubi0: min./max. I/O unit sizes: 2048/2048, sub-page size 2048</span><br><span class="line">ubi0: VID header offset: 2048 (aligned 2048), data offset: 4096</span><br><span class="line">ubi0: good PEBs: 932, bad PEBs: 0, corrupted PEBs: 0</span><br><span class="line">ubi0: user volume: 3, internal volumes: 1, max. volumes count: 128</span><br><span class="line">ubi0: max/mean erase counter: 1/0, WL threshold: 4096, image sequence number: 1678472241</span><br><span class="line">ubi0: available PEBs: 0, total reserved PEBs: 932, PEBs reserved for bad PEB handling: 20</span><br><span class="line">flash_type:             0xb</span><br><span class="line">flash_index:            0x0</span><br><span class="line">flash_chip_select:      0x0</span><br><span class="line">flash_block_size:       0x20000</span><br><span class="line">flash_density:          0x80000</span><br><span class="line">partition table offset  0x0</span><br><span class="line">No.: Name             Attributes            Start             Size</span><br><span class="line">  0: 0:SBL1           0x0000ffff              0x0          0x80000</span><br><span class="line">  1: 0:MIBIB          0x0000ffff          0x80000          0x80000</span><br><span class="line">  2: 0:BOOTCONFIG     0x0000ffff         0x100000          0x40000</span><br><span class="line">  3: 0:BOOTCONFIG1    0x0000ffff         0x140000          0x40000</span><br><span class="line">  4: 0:QSEE           0x0000ffff         0x280000         0x100000</span><br><span class="line">  5: 0:QSEE_1         0x0000ffff         0x180000         0x100000</span><br><span class="line">  6: 0:DEVCFG         0x0000ffff         0x3c0000          0x40000</span><br><span class="line">  7: 0:DEVCFG_1       0x0000ffff         0x380000          0x40000</span><br><span class="line">  8: 0:CDT            0x0000ffff         0x440000          0x40000</span><br><span class="line">  9: 0:CDT_1          0x0000ffff         0x400000          0x40000</span><br><span class="line"> 10: 0:APPSBLENV      0x0000ffff         0x480000          0x80000</span><br><span class="line"> 11: 0:APPSBL         0x0000ffff         0x640000         0x140000</span><br><span class="line"> 12: 0:APPSBL_1       0x0000ffff         0x500000         0x140000</span><br><span class="line"> 13: 0:ART            0x0000ffff         0x780000         0x100000</span><br><span class="line"> 14: 0:TRAINING       0x0000ffff         0x880000          0x80000</span><br><span class="line"> 15: bdata            0x0000ffff         0x900000          0x80000</span><br><span class="line"> 16: crash            0x0000ffff         0x980000          0x80000</span><br><span class="line"> 17: crash_log        0x0000ffff         0xa00000          0x80000</span><br><span class="line"> 18: rootfs           0x0000ffff         0xa80000        0x7480000</span><br><span class="line">        ubi vol 0 kernel</span><br><span class="line">        ubi vol 1 rootfs</span><br><span class="line">        ubi vol 2 rootfs_data</span><br></pre></td></tr></table></figure>
 
@@ -203,7 +203,7 @@
     <div class="card-text">
       
         <a href="/2025/02/16/Xiaomi%20AX3000T%E5%88%B7%E6%9C%BA/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">(no title)</h2>
+          <h2 class="card-text--title text-ellipsis">H3C Magic NX30 TTL线刷机</h2>
         </a>
       
       <div class="card-text--row">Newer</div>
@@ -380,6 +380,34 @@
 
   
   <!-- aplayer -->
+
+
+  <!-- aplayer 音频 start -->
+  <link rel="stylesheet" href="https://unpkg.com/aplayer@1.10.1/dist/APlayer.min.css">
+  <script type="text/javascript" src="https://unpkg.com/aplayer@1.10.1/dist/APlayer.min.js"></script>
+  <script type="text/javascript">
+    const aplayer = document.querySelectorAll(".aplayer-box");
+    aplayer && initaplayer(aplayer);
+    function initaplayer(els) {
+      let elsArr = Array.from(els);
+      elsArr.forEach(el => {
+        let params = {
+          container: el,
+          audio: { ...el.dataset },
+          theme: "#b7daff",
+          autoplay: false,
+          loop: false,
+          mutex: true,
+        }
+        if (el.dataset.lrc) {
+          params['lrcType'] = 3
+        }
+        new APlayer(params);
+      });
+    }
+  </script>
+  <!-- aplayer 音频 end -->
+  
 
 
 <!-- dplayer -->
