@@ -22,7 +22,7 @@
 
   
 
-  <title>GITHUB+HEXO部署博客 | 邪王真眼是最强的！</title>
+  <title>邪王真眼是最强的！</title>
 
   
 
@@ -96,11 +96,11 @@
     <div class="header-content">
       <div class="post-text layout-block">
         <div class="layout-margin">
-          <h1 class="title-wrap">GITHUB+HEXO部署博客</h1>
+          <h1 class="title-wrap"></h1>
           <h2 class="title-sub-wrap">
             <strong>Y-QvQ</strong>
             <span>发布于</span>
-            <time  class="article-date" datetime="2021-11-03T12:51:01.000Z" itemprop="datePublished">2021-11-03</time>
+            <time  class="article-date" datetime="2025-02-10T11:08:14.602Z" itemprop="datePublished">2025-02-10</time>
           </h2>
           <ul class="wrap-list dark">
   
@@ -129,23 +129,68 @@
       
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <h2 id="第一次写博客就写我怎么第一次写博客吧︿-￣︶￣-︿"><a href="#第一次写博客就写我怎么第一次写博客吧︿-￣︶￣-︿" class="headerlink" title="第一次写博客就写我怎么第一次写博客吧︿(￣︶￣)︿"></a>第一次写博客就写我怎么第一次写博客吧︿(￣︶￣)︿</h2><div class="aplayer-box" data-url='https://qiniu.sukoshi.xyz/public/music/鹿乃 - アイロニ.mp3' data-name='アイロニ' data-artist='鹿乃' data-cover='https://qiniu.sukoshi.xyz/public/music/鹿乃 - アイロニ.jpg' data-lrc='https://qiniu.sukoshi.xyz/public/music/鹿乃 - アイロニ.lrc' data-lrcType='3' ></div>
+        <h1 id="H3C-Magic-NX30-TTL线刷机"><a href="#H3C-Magic-NX30-TTL线刷机" class="headerlink" title="H3C Magic NX30 TTL线刷机"></a>H3C Magic NX30 TTL线刷机</h1><h2 id="准备材料"><a href="#准备材料" class="headerlink" title="准备材料"></a>准备材料</h2><p><strong>硬件</strong></p>
+<p>Usb转TTL，焊笔，锡丝,杜邦线(公头焊接到电阻上)/PCB夹子(方便,整的时候不知道有这个东西)</p>
+<p><strong>软件</strong></p>
+<p>mobaxterm,tftp64,对应固件</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/PJO2/tftpd64">https://github.com/PJO2/tftpd64</a></p>
+<p><a target="_blank" rel="noopener" href="https://mobaxterm.mobatek.net/">https://mobaxterm.mobatek.net/</a></p>
+<p><a target="_blank" rel="noopener" href="https://firmware-selector.immortalwrt.org/">https://firmware-selector.immortalwrt.org/</a></p>
+<p><a target="_blank" rel="noopener" href="https://firmware-selector.openwrt.org/">https://firmware-selector.openwrt.org/</a></p>
+<h2 id="连接TTL"><a href="#连接TTL" class="headerlink" title="连接TTL"></a>连接TTL</h2><p>接好ttl线后使用mobaxterm创建serial连接,选择对应的Serial port,Speed(bps)设置为115200</p>
+<p>可以正常输入输出，进入了<code>&lt;H3C_NX30&gt;</code>终端</p>
+<p><img src="....%5Csource%5Cimgs%5Ch3c_nx30%5C1.png" alt="1"></p>
+<p><img src="....%5Csource%5Cimgs%5Ch3c_nx30%5C2.png" alt="2"></p>
+<h2 id="进入UBOOT"><a href="#进入UBOOT" class="headerlink" title="进入UBOOT"></a>进入UBOOT</h2><p>输入reboot,开机时按Enter进入uboot</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">***************************************************************************</span><br><span class="line">*                                                                         *</span><br><span class="line">*                     H3C NX30 Boot, Version 100                     *</span><br><span class="line">*                                                                         *</span><br><span class="line">***************************************************************************</span><br><span class="line"></span><br><span class="line">Hit Enter to stop autoboot:  0</span><br></pre></td></tr></table></figure>
 
-<h3 id="安装Node"><a href="#安装Node" class="headerlink" title="安装Node"></a>安装<a target="_blank" rel="noopener" href="https://nodejs.org/en/download/">Node</a></h3><h3 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装<a target="_blank" rel="noopener" href="https://git-scm.com/">Git</a></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.email <span class="string">&quot;you@example.com&quot;</span>//绑定github帐号</span><br><span class="line">git config --global user.name <span class="string">&quot;Your Name&quot;</span></span><br><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<p>在上述页面出来的一小段时间里按回车(建议提前按，按快点),失败了输入reboot重来</p>
+<p>进入<code>&lt;H3C&gt;</code>终端即为成功</p>
+<p><a target="_blank" rel="noopener" href="https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/18842223/U-boot">u-boot命令</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">printenv</span><br><span class="line">mtd list</span><br><span class="line">mtdparts</span><br><span class="line">smeminfo</span><br></pre></td></tr></table></figure>
 
-<h3 id="注册Github账号"><a href="#注册Github账号" class="headerlink" title="注册Github账号"></a>注册<a target="_blank" rel="noopener" href="https://github.com/">Github</a>账号</h3><h3 id="配置SSH"><a href="#配置SSH" class="headerlink" title="配置SSH"></a>配置<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/SSH/10407">SSH</a></h3><p>右键点击git bash here</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;github的注册邮箱&quot;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">erase &lt;flash地址&gt; +&lt;擦除大小&gt;</span><br><span class="line">sf erase &lt;flash地址&gt; +&lt;擦除大小&gt;</span><br><span class="line">sf write &lt;源地址&gt; &lt;目的地址&gt; &lt;长度&gt;</span><br><span class="line">cp.b &lt;源地址&gt; &lt;目的地址&gt; &lt;长度&gt;</span><br></pre></td></tr></table></figure>
 
 
 
-<h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/index.html">Hexo</a></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-cli -g <span class="comment">#安装Hexo</span></span><br><span class="line">$ hexo init blog <span class="comment">#初始化（blog为你准备的目录）</span></span><br><span class="line">$ <span class="built_in">cd</span> blog</span><br><span class="line">$ npm install</span><br><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<h2 id="配置TFTP"><a href="#配置TFTP" class="headerlink" title="配置TFTP"></a>配置TFTP</h2><p>将电脑网口与路由器WAN口连接</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">setenv serverip 192.168.x.x</span><br><span class="line">setenv ipaddr 192.168.x.x</span><br><span class="line">电脑ip与uboot中serverip保持一致,电脑网关和DNS与uboot中ipaddr保持一致</span><br><span class="line"></span><br><span class="line">我这里是</span><br><span class="line">ipaddr=192.168.10.10</span><br><span class="line">serverip=192.168.10.19</span><br></pre></td></tr></table></figure>
 
-<h3 id="Typora"><a href="#Typora" class="headerlink" title="Typora"></a><a target="_blank" rel="noopener" href="https://www.typora.io/">Typora</a></h3><h3 id="VScode"><a href="#VScode" class="headerlink" title="VScode"></a><a target="_blank" rel="noopener" href="https://code.visualstudio.com/">VScode</a></h3><h3 id="换主题"><a href="#换主题" class="headerlink" title="换主题"></a>换主题</h3><p>_config.yml中theme：主题名</p>
-<h3 id="Hexo常用操作（详细请查看官方文档）"><a href="#Hexo常用操作（详细请查看官方文档）" class="headerlink" title="Hexo常用操作（详细请查看官方文档）"></a>Hexo常用操作（详细请查看<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">官方文档</a>）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g <span class="comment">#生成静态网页</span></span><br><span class="line">$ hexo s <span class="comment">#本地预览</span></span><br><span class="line">$ hexo d <span class="comment">#部署</span></span><br><span class="line">$ hexo s -p 端口</span><br></pre></td></tr></table></figure>
+<p>将所需固件放入tftp目录下</p>
+<p><img src="....%5Csource%5Cimgs%5Ch3c_nx30%5C3.png" alt="3"></p>
+<h2 id="刷固件"><a href="#刷固件" class="headerlink" title="刷固件"></a>刷固件</h2><p><strong>方法一 刷入带有ssh的固件(找不到固件)</strong></p>
+<p><strong>方法二 刷入factory固件(失败了)</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tftpboot factory.bin</span><br><span class="line">flash rootfs</span><br><span class="line">reset/reboot</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new  [文件布局] <span class="string">&quot;文件名&quot;</span> <span class="comment">#新建文章</span></span><br><span class="line">$ hexo new page --path /.../... <span class="string">&quot;文件名&quot;</span> <span class="comment">#自定义新文章的路径</span></span><br><span class="line">$ hexo clean</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">tftpboot factory.bin</span><br><span class="line">flash rootfs_1</span><br><span class="line">setenv flag_try_sys2_failed 0   </span><br><span class="line">setenv flag_boot_rootfs 1</span><br><span class="line">setenv flag_last_success 1</span><br><span class="line">saveenv</span><br><span class="line">reset/reboot</span><br></pre></td></tr></table></figure>
 
-<h3 id="主题🏷️-flex-block"><a href="#主题🏷️-flex-block" class="headerlink" title="主题🏷️ flex-block"></a>主题<a target="_blank" rel="noopener" href="https://kyori.xyz/tags/flex-block/">🏷️ flex-block</a></h3>
+<p>参考<a target="_blank" rel="noopener" href="https://www.right.com.cn/forum/thread-8274491-1-1.html">https://www.right.com.cn/forum/thread-8274491-1-1.html</a></p>
+<p><strong>方法三 刷入救砖包(MIBIB和APPSBL)</strong></p>
+<p>需要特定固件包(不确定)，不到H3C的，所以混刷了AX3000的不死界面WEB**(会车门焊死用不了TTL,慎重)**，终端从&lt;H3C&gt;变为了IPQ5018#</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">刷大分区</span><br><span class="line">tftpboot MIBIB.bin &amp;&amp; flash 0:MIBIB</span><br><span class="line">刷UBOOT</span><br><span class="line">tftpboot APPSBL.bin &amp;&amp; flash 0:APPSBL</span><br><span class="line">tftpboot APPSBL1.bin &amp;&amp; flash 0:APPSBL_1</span><br></pre></td></tr></table></figure>
+
+<p>刷完断电，用网线连接 LAN 口和电脑，按着 reset 插电 5~10 秒后进入 Uboot</p>
+<p>选好CR8808固件包后无法成功刷固件(其他固件传上去说用不了),断电重启会回到web页面,不断电可以使用TTL(可能是因为固件不对刷不成功)</p>
+<p><strong>方法四 刷入救砖包(MIBIB和APPSBL)</strong></p>
+<p>用烧录器烧录低版本固件到闪存，然后用常规方法刷。(烧录夹、编程器、热风枪等)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">smeminfo</span><br><span class="line">ubi0: detaching mtd1</span><br><span class="line">ubi0: mtd1 is detached</span><br><span class="line">ubi0: attaching mtd1</span><br><span class="line">ubi0: scanning is finished</span><br><span class="line">ubi0: attached mtd1 (name &quot;mtd=0&quot;, size 116 MiB)</span><br><span class="line">ubi0: PEB size: 131072 bytes (128 KiB), LEB size: 126976 bytes</span><br><span class="line">ubi0: min./max. I/O unit sizes: 2048/2048, sub-page size 2048</span><br><span class="line">ubi0: VID header offset: 2048 (aligned 2048), data offset: 4096</span><br><span class="line">ubi0: good PEBs: 932, bad PEBs: 0, corrupted PEBs: 0</span><br><span class="line">ubi0: user volume: 3, internal volumes: 1, max. volumes count: 128</span><br><span class="line">ubi0: max/mean erase counter: 1/0, WL threshold: 4096, image sequence number: 1678472241</span><br><span class="line">ubi0: available PEBs: 0, total reserved PEBs: 932, PEBs reserved for bad PEB handling: 20</span><br><span class="line">flash_type:             0xb</span><br><span class="line">flash_index:            0x0</span><br><span class="line">flash_chip_select:      0x0</span><br><span class="line">flash_block_size:       0x20000</span><br><span class="line">flash_density:          0x80000</span><br><span class="line">partition table offset  0x0</span><br><span class="line">No.: Name             Attributes            Start             Size</span><br><span class="line">  0: 0:SBL1           0x0000ffff              0x0          0x80000</span><br><span class="line">  1: 0:MIBIB          0x0000ffff          0x80000          0x80000</span><br><span class="line">  2: 0:BOOTCONFIG     0x0000ffff         0x100000          0x40000</span><br><span class="line">  3: 0:BOOTCONFIG1    0x0000ffff         0x140000          0x40000</span><br><span class="line">  4: 0:QSEE           0x0000ffff         0x280000         0x100000</span><br><span class="line">  5: 0:QSEE_1         0x0000ffff         0x180000         0x100000</span><br><span class="line">  6: 0:DEVCFG         0x0000ffff         0x3c0000          0x40000</span><br><span class="line">  7: 0:DEVCFG_1       0x0000ffff         0x380000          0x40000</span><br><span class="line">  8: 0:CDT            0x0000ffff         0x440000          0x40000</span><br><span class="line">  9: 0:CDT_1          0x0000ffff         0x400000          0x40000</span><br><span class="line"> 10: 0:APPSBLENV      0x0000ffff         0x480000          0x80000</span><br><span class="line"> 11: 0:APPSBL         0x0000ffff         0x640000         0x140000</span><br><span class="line"> 12: 0:APPSBL_1       0x0000ffff         0x500000         0x140000</span><br><span class="line"> 13: 0:ART            0x0000ffff         0x780000         0x100000</span><br><span class="line"> 14: 0:TRAINING       0x0000ffff         0x880000          0x80000</span><br><span class="line"> 15: bdata            0x0000ffff         0x900000          0x80000</span><br><span class="line"> 16: crash            0x0000ffff         0x980000          0x80000</span><br><span class="line"> 17: crash_log        0x0000ffff         0xa00000          0x80000</span><br><span class="line"> 18: rootfs           0x0000ffff         0xa80000        0x7480000</span><br><span class="line">        ubi vol 0 kernel</span><br><span class="line">        ubi vol 1 rootfs</span><br><span class="line">        ubi vol 2 rootfs_data</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a target="_blank" rel="noopener" href="https://www.right.com.cn/forum/thread-8356975-1-1.html">https://www.right.com.cn/forum/thread-8356975-1-1.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1r64y157yz">https://www.bilibili.com/video/BV1r64y157yz</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.right.com.cn/FORUM/thread-4041386-1-1.html">https://www.right.com.cn/FORUM/thread-4041386-1-1.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.right.com.cn/forum/thread-154561-1-1.html">https://www.right.com.cn/forum/thread-154561-1-1.html</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.elelab.net/use-tftpd32-ttl-write-u-boot.html">http://www.elelab.net/use-tftpd32-ttl-write-u-boot.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.right.com.cn/FORUM/thread-8383273-1-1.html">https://www.right.com.cn/FORUM/thread-8383273-1-1.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.right.com.cn/forum/thread-8299605-1-1.html">https://www.right.com.cn/forum/thread-8299605-1-1.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.right.com.cn/forum/thread-8274491-1-1.html">https://www.right.com.cn/forum/thread-8274491-1-1.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.right.com.cn/FORUM/thread-8255773-1-1.html">https://www.right.com.cn/FORUM/thread-8255773-1-1.html</a></p>
+
       </section>
 
       
@@ -157,8 +202,8 @@
     
     <div class="card-text">
       
-        <a href="/2022/12/13/WAV%E9%9F%B3%E9%A2%91lsb%E9%9A%90%E5%86%99/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">WAV音频lsb隐写</h2>
+        <a href="/2025/02/16/Xiaomi%20AX3000T%E5%88%B7%E6%9C%BA/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">(no title)</h2>
         </a>
       
       <div class="card-text--row">Newer</div>
@@ -172,8 +217,8 @@
     
     <div class="card-text">
       
-        <a href="/2021/11/02/Hello-World/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">Hello World</h2>
+        <a href="/2023/09/23/NSP%E4%B8%AD%E6%8F%90%E5%8F%96%E8%B5%84%E6%BA%90/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">NSP中提取资源</h2>
         </a>
       
       <div class="card-text--row">Older</div>
@@ -335,34 +380,6 @@
 
   
   <!-- aplayer -->
-
-
-  <!-- aplayer 音频 start -->
-  <link rel="stylesheet" href="https://unpkg.com/aplayer@1.10.1/dist/APlayer.min.css">
-  <script type="text/javascript" src="https://unpkg.com/aplayer@1.10.1/dist/APlayer.min.js"></script>
-  <script type="text/javascript">
-    const aplayer = document.querySelectorAll(".aplayer-box");
-    aplayer && initaplayer(aplayer);
-    function initaplayer(els) {
-      let elsArr = Array.from(els);
-      elsArr.forEach(el => {
-        let params = {
-          container: el,
-          audio: { ...el.dataset },
-          theme: "#b7daff",
-          autoplay: false,
-          loop: false,
-          mutex: true,
-        }
-        if (el.dataset.lrc) {
-          params['lrcType'] = 3
-        }
-        new APlayer(params);
-      });
-    }
-  </script>
-  <!-- aplayer 音频 end -->
-  
 
 
 <!-- dplayer -->
